@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010, 2012
+<?php // (C) Copyright Bobbing Wide 2010, 2013
 
 
 /*  The old way of embedding YouTube videos
@@ -203,7 +203,7 @@ function bw_movie( $url, $width, $height ) {
   $parms .= kv( "type", "text/html" );
   $parms .= kv( "src", $url );
   $parms .= kv( "frameborder", "0" );
-  stag( "iframe", "youtube-player", null, $parms );
+  stag( "iframe", "youtube-player bw_video_inner", null, $parms );
   etag( "iframe" );
 }
 
@@ -232,29 +232,31 @@ function _bw_improve_url( $url ) {
 }
 
 /**
- * Implement a video for attachments or other post types
- *
+ * Implement [bw_video] shortcode to display a video for attachments or other post types
  *
 */
 function bw_video( $atts=null ) {
   $url = bw_array_get( $atts, "url", null );
-  $width = bw_array_get( $atts, "width", 640 );
-  $height = bw_array_get( $atts, "height", 480 );
+  $width = bw_array_get( $atts, "width", null );
+  $height = bw_array_get( $atts, "height", null );
+  $class = bw_array_get( $atts, "class", "bw_video" );
   if ( $url ) {
     $url = _bw_improve_url( $url ); 
+    sdiv( $class );
     bw_movie( $url, $width, $height );
+    ediv();
   } else {
     bw_attached_videos( $atts, $width, $height );
   } 
   return( bw_ret() );  
 }
 
-function bw_attached_videos( $atts = null, $width, $height ) {
+function bw_attached_videos( $atts=null, $width, $height ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );
-  if ( $atts[ 'post_type'] == "attachment" )
+  if ( $atts[ 'post_type'] == "attachment" ) {
     $atts[ 'post_mime_type' ] = bw_array_get( $atts, "post_mime_type", "video" );
-  
-  $class = bw_array_get( $atts, "class", null );
+  }
+  $class = bw_array_get( $atts, "class", "bw_video" );
   oik_require( "shortcodes/oik-attachments.php" );
   $posts = bw_get_posts( $atts );
   if ( $posts ) {
@@ -272,8 +274,8 @@ function bw_video__syntax( $shortcode='bw_video' ) {
   $syntax = array();
   $syntax = array_merge( $syntax, _sc_posts() );
   $video_syntax = array( "url" => bw_skv( "", "<i>url</i>", "URL of Video to display" )
-                 , "width" => bw_skv( 640, "<i>width</i>", "Width in pixels" )
-                 , "height" => bw_skv( 480, "<i>height</i>", "Height in pixels" )
+                 , "width" => bw_skv( null, "<i>width</i>", "Width in pixels" )
+                 , "height" => bw_skv( null, "<i>height</i>", "Height in pixels" )
                  , "class" => bw_skv( "", "<i>classes</i>", "CSS classes" )
                  );
   $syntax = array_merge( $syntax, $video_syntax );

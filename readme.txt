@@ -4,7 +4,7 @@ Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, video, [bw_video], oik, YouTube
 Requires at least: 3.0.4
 Tested up to: 3.5
-Stable tag: 1.0.1215
+Stable tag: 1.1.0429
 
 [bw_video] shortcode to display a video
 
@@ -30,6 +30,10 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 1. 
 
 == Upgrade Notice ==
+= 1.1.0429 =
+* Added responsive frame
+
+
 = 1.0.1215 = 
 * Tested with WordPress 3.5 and oik version 1.17.1212
 
