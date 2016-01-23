@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010, 2013
+<?php // (C) Copyright Bobbing Wide 2010-2014
 
 
 /*  The old way of embedding YouTube videos
@@ -222,25 +222,42 @@ function bw_movie( $url, $width, $height ) {
  * 
  * AND we also Enable privacy-enhanced mode using www.youtube-nocookie.com
  *
+ * Unfortunately this method doesn't like &rel=0 when it becomes the first parameter
+ * so we need to convert the first & to a ? 
+ *
+ * We also have to convert '&#038;'s back to simple ampersands.
+ *
  */
 function _bw_improve_url( $url ) {
   $url = str_replace( "youtu.be", "www.youtube-nocookie.com/embed/", $url );
   $url = str_replace( "watch?v=",  "embed/" , $url );
   $url = str_replace( "/v/", "/embed/", $url );
   $url = str_replace( "youtube.", "youtube-nocookie.", $url );
+  $url = str_replace( "&#038;", "&", $url );
+  if ( false === strpos( $url, "?" ) ) {
+    $posamp = strpos( $url, "&" );
+    if ( $posamp !== false ) {
+      $url[$posamp] = "?";
+    }  
+  }
+  //bw_trace2( $url, "url" );
   return( $url );
 }
 
 /**
  * Implement [bw_video] shortcode to display a video for attachments or other post types
  *
-*/
+ */
 function bw_video( $atts=null ) {
   $url = bw_array_get( $atts, "url", null );
   $width = bw_array_get( $atts, "width", null );
   $height = bw_array_get( $atts, "height", null );
   $class = bw_array_get( $atts, "class", "bw_video" );
+  $atts['rel'] = bw_array_get ( $atts, "rel", 0 );
   if ( $url ) {
+    if ( false === strpos( $url, "rel=" ) ) {
+      $url = add_query_arg( "rel", $atts['rel'], $url ); 
+    } 
     $url = _bw_improve_url( $url ); 
     sdiv( $class );
     bw_movie( $url, $width, $height );

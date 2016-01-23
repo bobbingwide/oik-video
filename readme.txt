@@ -2,9 +2,9 @@
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, video, [bw_video], oik, YouTube
-Requires at least: 3.0.4
-Tested up to: 3.5
-Stable tag: 1.1.0429
+Requires at least: 3.5
+Tested up to: 3.8.1
+Stable tag: 1.2
 
 [bw_video] shortcode to display a video
 
@@ -27,9 +27,13 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 
 
 == Screenshots ==
-1. 
+1. None yet
 
 == Upgrade Notice ==
+= 1.2 =
+* Improved logic for "rel=0" parameter
+
+
 = 1.1.0429 =
 * Added responsive frame
 
@@ -45,6 +49,10 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 * first version works with oik version 1.11
 
 == Changelog ==
+= 1.2 =
+* Changed: Improved bw_improve_url to allow for  http://www.youtube.com/watch?v=HBVPKRW7QBU&rel=0
+* Added: rel=0 as default for externally hosted videos
+
 = 1.0.1215 = 
 * Added: YouTube videos are played in privacy-enhanced mode
 * Added: Ability to detect various forms of YouTube URL 
