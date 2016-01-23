@@ -58,9 +58,9 @@ Note: Setting the color parameter to white will disable the modestbranding optio
 
 controls (supported players: AS3, HTML5)
 Values: 0, 1, or 2. Default is 1. This parameter indicates whether the video player controls will display. For AS3 players, it also defines when the Flash player will load:
-controls=0 – Player controls do not display in the player. For AS3 players, the Flash player loads immediately.
-controls=1 – Player controls display in the player. For AS3 players, the Flash player loads immediately.
-controls=2 – Player controls display in the player. For AS3 players, the Flash player loads afer the user initiates the video playback.
+controls=0 - Player controls do not display in the player. For AS3 players, the Flash player loads immediately.
+controls=1 - Player controls display in the player. For AS3 players, the Flash player loads immediately.
+controls=2 - Player controls display in the player. For AS3 players, the Flash player loads afer the user initiates the video playback.
 Note: The parameter values 1 and 2 are intended to provide an identical user experience, but controls=2 provides a performance improvement over controls=1. 
 Currently, the two values still produce some visual differences in the player, such as the video title's font size. 
 However, when the difference between the two values becomes completely transparent to the user, the default parameter value may change from 1 to 2.
@@ -256,7 +256,7 @@ function bw_video( $atts=null ) {
   $atts['rel'] = bw_array_get ( $atts, "rel", 0 );
   if ( $url ) {
     if ( false === strpos( $url, "rel=" ) ) {
-      $url = add_query_arg( "rel", $atts['rel'], $url ); 
+      $url = esc_url( add_query_arg( "rel", $atts['rel'], $url ) );
     } 
     $url = _bw_improve_url( $url ); 
     sdiv( $class );

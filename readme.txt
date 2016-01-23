@@ -2,9 +2,9 @@
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, video, [bw_video], oik, YouTube
-Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 1.2
+Requires at least: 3.9
+Tested up to: 4.4.1
+Stable tag: 1.2.1
 
 [bw_video] shortcode to display a video
 
@@ -30,13 +30,14 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 1. None yet
 
 == Upgrade Notice ==
+= 1.2.1 =
+Tested with WordPress 4.4.1. Now depends on oik v2.25 or higher
+
 = 1.2 =
 * Improved logic for "rel=0" parameter
 
-
 = 1.1.0429 =
 * Added responsive frame
-
 
 = 1.0.1215 = 
 * Tested with WordPress 3.5 and oik version 1.17.1212
@@ -44,11 +45,15 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 = 1.0.1213 =
 * Tested with WordPress 3.5 and oik version 1.17.1212
 
-
 = 1.0 =
 * first version works with oik version 1.11
 
 == Changelog ==
+= 1.2.1 =
+* Added: Dependency checking on oik base plugin
+* Changed: calls esc_url() around add_query_arg()
+* Tested: With WordPress 4.4.1 and WordPress MultiSite 
+
 = 1.2 =
 * Changed: Improved bw_improve_url to allow for  http://www.youtube.com/watch?v=HBVPKRW7QBU&rel=0
 * Added: rel=0 as default for externally hosted videos

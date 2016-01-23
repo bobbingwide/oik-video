@@ -4,12 +4,12 @@ Plugin Name: oik-video
 Depends: oik
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-video
 Description: [bw_video]/[bw_movie] shortcode for oik
-Version: 1.2
+Version: 1.2.1
 Author: bobbingwide
 Author URI: http://www.bobbingwide.com
 License: GPL2
 
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -26,6 +26,8 @@ License: GPL2
     http://www.gnu.org/licenses/gpl-2.0.html
 
 */
+
+bw_video_loaded();  
 
 /**
  * Implement "oik_loaded" action for oik-video
@@ -46,13 +48,29 @@ function bwv_admin_menu() {
 }
 
 /**
+ * Implement "admin_notices" for oik-video to check plugin dependency
+ */ 
+function bwv_activation() {
+  static $plugin_basename = null;
+  if ( !$plugin_basename ) {
+    $plugin_basename = plugin_basename(__FILE__);
+    add_action( "after_plugin_row_oik-video/oik-video.php", "bwv_activation" );
+    if ( !function_exists( "oik_plugin_lazy_activation" ) ) { 
+      require_once( "admin/oik-activation.php" );
+    }
+  }  
+  $depends = "oik:2.5";
+  oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
+}
+
+/**
  * Function to invoke when plugin loaded
  */ 
 function bw_video_loaded() {
   add_action( "oik_loaded", "bw_video_init" );
+  add_action( "admin_notices", "bwv_activation" );
 }
 
-bw_video_loaded();  
 
 
 
