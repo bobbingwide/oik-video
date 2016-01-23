@@ -6,8 +6,9 @@ Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-video
 Description: [bw_video]/[bw_movie] shortcode for oik
 Version: 1.2.1
 Author: bobbingwide
-Author URI: http://www.bobbingwide.com
-License: GPL2
+Author URI: http://www.oik-plugins.com/author/bobbingwide
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
     Copyright 2012-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
