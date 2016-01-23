@@ -4,7 +4,7 @@ Plugin Name: oik-video
 Depends: oik
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-video
 Description: [bw_video]/[bw_movie] shortcode for oik
-Version: 1.0
+Version: 1.0.1215
 Author: bobbingwide
 Author URI: http://www.bobbingwide.com
 License: GPL2
@@ -31,19 +31,14 @@ add_action( "oik_loaded", "bw_video_init" );
 
 function bw_video_init() {
   bw_add_shortcode( "bw_video", "bw_video", oik_path( "oik-video.inc", "oik-video" ), false );
+  // We should only do this when it's admin and oik has been loaded
+  add_filter( "oik_admin_menu", "bwv_admin_menu" );
 }
-
-
-
-
-// We should only do this when it's admin and oik has been loaded **?**
-add_filter( "oik_admin_menu", "oikf_admin_menu" );
-
 
 /**
  *  
  */
-function oikf_admin_menu() {
+function bwv_admin_menu() {
   oik_register_plugin_server( __FILE__ );
 }
 

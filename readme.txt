@@ -3,22 +3,19 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, video, [bw_video], oik, YouTube
 Requires at least: 3.0.4
-Tested up to: 3.4
-Stable tag: trunk
+Tested up to: 3.5
+Stable tag: 1.0.1215
 
 [bw_video] shortcode to display a video
 
 == Description ==
 Displays the video you've chosen
 
-Similar to embed BUT this code also works on Drupal
-
-
 
 == Installation ==
 1. Upload the contents of the oik-video plugin to the `/wp-content/plugins/oik-video' directory
 1. Activate the oik-video plugin through the 'Plugins' menu in WordPress
-1. Whenever you want to produce some 'oik-video'ed text use the [bw_video] shortcode.
+1. Use the [bw_video] shortcode when you want to display an attached video OR a YouTube video
 
 Note: oik-video is dependent upon the oik plugin. You can activate it but it will not work unless oik is also activated.
 Download oik from 
@@ -33,10 +30,25 @@ YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
 1. 
 
 == Upgrade Notice ==
+= 1.0.1215 = 
+* Tested with WordPress 3.5 and oik version 1.17.1212
+
+= 1.0.1213 =
+* Tested with WordPress 3.5 and oik version 1.17.1212
+
+
 = 1.0 =
 * first version works with oik version 1.11
 
 == Changelog ==
+= 1.0.1215 = 
+* Added: YouTube videos are played in privacy-enhanced mode
+* Added: Ability to detect various forms of YouTube URL 
+* Added: Help for width and height parameters
+* Added: Example and snippet 
+* Fixed: YouTube videos now display on an iPhone
+* Fixed: Frameborder now set to "0" 
+
 = 1.0 =
 * initial version. Works with oik version 1.11 
 
