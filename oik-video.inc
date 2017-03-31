@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2014
+<?php // (C) Copyright Bobbing Wide 2010-2017
 
 
 /*  The old way of embedding YouTube videos
@@ -161,18 +161,29 @@ http://www.youtube.com/watch?feature=player_detailpage&v=wmBtOiPlcIA#t=47s
 
 */
 
+
+/**
+ * Outputs a param tag
+ *
+ * @param string $name
+ * @param string $value
+ */
 function bw_param( $name, $value ) {
   stag( "param", null, null, kv( $name, $value ));
   etag( "param");
 }
     
-/*
-bw_movie( "http://www.youtube.com/v/prRUji1K4yg&hl=en&fs=1"
-        , 200
-        , 200
-        );
-        
-*/
+/** 
+ * Displays video using the old method
+ * 
+ * `
+ * bw_movie( "http://www.youtube.com/v/prRUji1K4yg&hl=en&fs=1"
+ *        , 200
+ *        , 200
+ *        );
+ * `     
+ * 
+ */
 function bw_movie_old( $url, $width, $height ) {
   //$url = urlencode( $url );
   $kvwh =  kv( "width", $width );
@@ -192,9 +203,13 @@ function bw_movie_old( $url, $width, $height ) {
 } 
 
 /**
- * Embed the video using iframe
+ * Embeds the video using iframe
  *
  * Note: the parameter for frameborder is enclosed in quotes so that it does get added to the parms
+ * 
+ * @param string $url the full URL expected to be using the correct protocol
+ * @param string $width
+ * @param string $height
  */
 function bw_movie( $url, $width, $height ) {
   $kvwh =  kv( "width", $width );
@@ -208,7 +223,7 @@ function bw_movie( $url, $width, $height ) {
 }
 
 /** 
- * Improve YouTube URL 
+ * Improves YouTube URL 
  * 
  * Notes: If the URL is like one of these below
  *
@@ -226,7 +241,11 @@ function bw_movie( $url, $width, $height ) {
  * so we need to convert the first & to a ? 
  *
  * We also have to convert '&#038;'s back to simple ampersands.
- *
+ * 
+ * Finally, we set the protocol depending on is_ssl() using set_url_scheme();
+ * 
+ * @param string $url the requested URL
+ * @return string the improved URL
  */
 function _bw_improve_url( $url ) {
   $url = str_replace( "youtu.be", "www.youtube-nocookie.com/embed/", $url );
@@ -240,13 +259,18 @@ function _bw_improve_url( $url ) {
       $url[$posamp] = "?";
     }  
   }
-  //bw_trace2( $url, "url" );
+	$url = set_url_scheme( $url );
+  bw_trace2( $url, "url", true, BW_TRACE_VERBOSE );
   return( $url );
 }
 
 /**
- * Implement [bw_video] shortcode to display a video for attachments or other post types
+ * Implements [bw_video] shortcode to display a video for attachments or other post types
  *
+ * @param array $atts shortcode parameters
+ * @param string $content - not expected
+ * @param string $tag - bw_video
+ * @returns string the generated HTML
  */
 function bw_video( $atts=null ) {
   $url = bw_array_get( $atts, "url", null );
@@ -268,6 +292,13 @@ function bw_video( $atts=null ) {
   return( bw_ret() );  
 }
 
+/** 
+ * Displays attached videos
+ * 
+ * @param array $atts shortcode parameters
+ * @param string $width
+ * @param string $height
+ */
 function bw_attached_videos( $atts=null, $width, $height ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );
   if ( $atts[ 'post_type'] == "attachment" ) {
@@ -283,10 +314,16 @@ function bw_attached_videos( $atts=null, $width, $height ) {
   }  
 }
 
+/**
+ * Help hook for [bw_video] shortcode
+ */
 function bw_video__help( $shortcode="bw_video" ) {
   return( "Display the video specified (url=) or attached videos" );
-}  
+} 
 
+/**
+ * Syntax hook for [bw_video] shortcode
+ */ 
 function bw_video__syntax( $shortcode='bw_video' ) {
   $syntax = array();
   $syntax = array_merge( $syntax, _sc_posts() );
@@ -299,17 +336,21 @@ function bw_video__syntax( $shortcode='bw_video' ) {
   return( $syntax );
 }
 
+/**
+ * Example for [bw_video] shortcode
+ */
 function bw_video__example( $shortcode="bw_video" ) {
-  $atts = 'url=http://youtu.be/2IYAU2qeeC8?rel=0';
+  $atts = 'url=https://youtu.be/2IYAU2qeeC8?rel=0';
   $text = "Sample video from oik-plugins" ;
   bw_invoke_shortcode( $shortcode, $atts, $text  );
 }
 
 /**
- * Produce the code snippet for the bw_video shortcode
+ * Code snippet for the [bw_video] shortcode
+ *
  * Since the implementing function for the shortcode is not the same as the shortcode we need to let _sc__snippet know
-*/ 
+ */ 
 function bw_video__snippet( $shortcode='bw_video' ) {
-  $atts = 'url=http://youtu.be/2IYAU2qeeC8?rel=0';
+  $atts = 'url=https://youtu.be/2IYAU2qeeC8?rel=0';
   _sc__snippet( $shortcode, $atts );
 }

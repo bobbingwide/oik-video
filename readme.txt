@@ -1,54 +1,59 @@
 === oik-video ===
 Contributors: bobbingwide
-Donate link: http://www.oik-plugins.com/oik/oik-donate/
+Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, video, [bw_video], oik, YouTube
 Requires at least: 3.9
-Tested up to: 4.4.1
-Stable tag: 1.2.1
+Tested up to: 4.7.3
+Stable tag: 1.2.2
 
 [bw_video] shortcode to display a video
 
 == Description ==
 Displays the video you've chosen
 
+== Frequently Asked Questions ==
 
-== Installation ==
+= Installation =
 1. Upload the contents of the oik-video plugin to the `/wp-content/plugins/oik-video' directory
 1. Activate the oik-video plugin through the 'Plugins' menu in WordPress
 1. Use the [bw_video] shortcode when you want to display an attached video OR a YouTube video
 
 Note: oik-video is dependent upon the oik plugin. You can activate it but it will not work unless oik is also activated.
 Download oik from 
-[oik download](http://wordpress.org/extend/plugins/oik/)
+[oik download](https://wordpress.org/extend/plugins/oik/)
 
-== Frequently Asked Questions ==
 = Can you tell me more? =
-YES. See http://www.oik-plugins.com/oik-plugins/oik-video/
+YES. See https://www.oik-plugins.com/oik-plugins/oik-video/
 
 
 == Screenshots ==
 1. None yet
 
 == Upgrade Notice ==
+= 1.2.2 =
+Supports https protocol.
+
 = 1.2.1 =
 Tested with WordPress 4.4.1. Now depends on oik v2.25 or higher
 
 = 1.2 =
-* Improved logic for "rel=0" parameter
+Improved logic for "rel=0" parameter
 
 = 1.1.0429 =
-* Added responsive frame
+Added responsive frame
 
 = 1.0.1215 = 
-* Tested with WordPress 3.5 and oik version 1.17.1212
-
-= 1.0.1213 =
-* Tested with WordPress 3.5 and oik version 1.17.1212
+Tested with WordPress 3.5 and oik version 1.17.1212
 
 = 1.0 =
-* first version works with oik version 1.11
+first version works with oik version 1.11
 
 == Changelog ==
+= 1.2.2 = 
+* Changed: Added support for https protocol,[github bobbingwide oik-video issues 1]
+* Tested: with WordPress 4.7.3 and WordPress Multisite. 
+* Tested: with PHP 7.1
+
 = 1.2.1 =
 * Added: Dependency checking on oik base plugin
 * Changed: calls esc_url() around add_query_arg()
