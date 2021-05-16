@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcode, video, [bw_video], oik, YouTube
 * Requires at least: 3.9
-* Tested up to: 4.7.3
-* Stable tag: 1.2.2
+* Tested up to: 5.7.2
+* Stable tag: 1.2.3
 
 [bw_video] shortcode to display a video
 
@@ -31,6 +31,9 @@ YES. See https://www.oik-plugins.com/oik-plugins/oik-video/
 1. None yet
 
 ## Upgrade Notice 
+# 1.2.3 
+Tested with PHP 8.0
+
 # 1.2.2 
 Supports https protocol.
 
@@ -50,6 +53,10 @@ Tested with WordPress 3.5 and oik version 1.17.1212
 first version works with oik version 1.11
 
 ## Changelog 
+# 1.2.3 
+* Changed: Update for PHP 8.0
+* Tested: With WordPress 5.7.2 and WordPress Multi Site
+
 # 1.2.2 
 * Changed: Added support for https protocol,https://github.com/bobbingwide/oik-video/issues/1
 * Tested: with WordPress 4.7.3 and WordPress Multisite.
@@ -78,6 +85,6 @@ first version works with oik version 1.11
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
-[oik plugin](http://www.oik-plugins.com/oik)
+[oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
 
