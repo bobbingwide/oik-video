@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2017
+<?php // (C) Copyright Bobbing Wide 2010-2021
 
 
 /*  The old way of embedding YouTube videos
@@ -299,7 +299,7 @@ function bw_video( $atts=null ) {
  * @param string $width
  * @param string $height
  */
-function bw_attached_videos( $atts=null, $width, $height ) {
+function bw_attached_videos( $atts, $width, $height ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );
   if ( $atts[ 'post_type'] == "attachment" ) {
     $atts[ 'post_mime_type' ] = bw_array_get( $atts, "post_mime_type", "video" );
