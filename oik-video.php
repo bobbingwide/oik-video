@@ -4,13 +4,13 @@ Plugin Name: oik-video
 Depends: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-video
 Description: [bw_video] shortcode for oik
-Version: 1.2.3
+Version: 1.2.4
 Author: bobbingwide
-Author URI: https://www.oik-plugins.com/author/bobbingwide
+Author URI: https://bobbingwide.com/about-bobbing-wide
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2012-2021 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2023 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,

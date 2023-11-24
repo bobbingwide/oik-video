@@ -1,11 +1,11 @@
 # oik-video 
-![banner](https://raw.githubusercontent.com/bobbingwide/oik-video/master/assets/oik-video-banner-772x250.jpg)
+![banner](assets/oik-video-banner-772x250.jpg)
 * Contributors: bobbingwide
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcode, video, [bw_video], oik, YouTube
 * Requires at least: 3.9
-* Tested up to: 5.7.2
-* Stable tag: 1.2.3
+* Tested up to: 6.4.1
+* Stable tag: 1.2.4
 
 [bw_video] shortcode to display a video
 
@@ -31,6 +31,9 @@ YES. See https://www.oik-plugins.com/oik-plugins/oik-video/
 1. None yet
 
 ## Upgrade Notice 
+# 1.2.4 
+Tested with PHP 8.1 and PHP 8.2
+
 # 1.2.3 
 Tested with PHP 8.0
 
@@ -53,6 +56,13 @@ Tested with WordPress 3.5 and oik version 1.17.1212
 first version works with oik version 1.11
 
 ## Changelog 
+# 1.2.4 
+* Changed: Add PHPUnit tests for PHP 8.1 and PHP 8.2 #3
+* Tested: With WordPress 6.4.1 and WordPress Multisite
+* Tested: With Gutenberg 17.1.2
+* Tested: With PHP 8.1 and PHP 8.2
+* Tested: With PHPUnit 9.6
+
 # 1.2.3 
 * Changed: Update for PHP 8.0
 * Tested: With WordPress 5.7.2 and WordPress Multi Site
